@@ -1,0 +1,9 @@
+server:
+  port: 8081
+spring:
+  datasource:
+      jack:
+        jdbc-url: jdbc:mysql://172.18.0.6:3306/jack_springboot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+        username: root
+        password: jack123
+        driver-class-name: com.mysql.cj.jdbc.Driver
