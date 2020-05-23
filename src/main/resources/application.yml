@@ -7,3 +7,6 @@ spring:
         username: root
         password: jack123
         driver-class-name: com.mysql.cj.jdbc.Driver
+#jackxu:
+#  format:
+#    type: gson
