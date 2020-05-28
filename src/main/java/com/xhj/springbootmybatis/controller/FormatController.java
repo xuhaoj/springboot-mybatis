@@ -1,11 +1,16 @@
 package com.xhj.springbootmybatis.controller;
 
 import com.jackxu.FormatTemplate;
-import com.xhj.springbootmybatis.domain.jack.model.User;
+import com.xhj.springbootmybatis.domain.mybatisdemo.model.TUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
+
+/**
+ * @author xhj
+ */
 @RestController
 public class FormatController {
 
@@ -14,11 +19,11 @@ public class FormatController {
 
     @RequestMapping("/formatTest")
     public String formatTest() {
-        User user = new User();
-        user.setId(123);
-        user.setNumber("456");
-        user.setPassword("abcdefg");
-        user.setUsername("徐帅哥");
-        return formatTemplate.doFormat(user);
+        TUser TUser = new TUser();
+        TUser.setId(123L);
+        TUser.setName("徐帅哥");
+        TUser.setSalary(new BigDecimal(1000));
+        return formatTemplate.doFormat(TUser);
     }
+
 }
