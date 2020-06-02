@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhj.springbootmybatis.domain.mybatisdemo.dao.MoneyChangeLogMapper">
+
+
+    <insert id="addChangeLog">
+      insert into money_change_log(userida,useridb,money,created_at)
+      values(#{userida},#{useridb},#{money},#{createTime})
+    </insert>
+
+</mapper>

@@ -20,16 +20,21 @@ public class LogServiceImpl implements LogService {
     @Autowired
     private MoneyChangeLogMapper moneyChangeLogMapper;
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
     @Override
-    public void addChangeLog(Long userIdA, Long userIdB, BigDecimal money) {
-        MoneyChangeLog moneyChangeLog = new MoneyChangeLog();
-        moneyChangeLog.setUserida(userIdA);
-        moneyChangeLog.setUseridb(userIdB);
-        moneyChangeLog.setMoney(money);
-        moneyChangeLog.setCreateTime(new Date());
-        moneyChangeLogMapper.addChangeLog(moneyChangeLog);
-        //throw new RuntimeException("jack xu");
+    @Transactional
+    public int addChangeLog(Long userIdA, Long userIdB, BigDecimal money) {
+        try {
+            MoneyChangeLog moneyChangeLog = new MoneyChangeLog();
+            moneyChangeLog.setUserida(userIdA);
+            moneyChangeLog.setUseridb(userIdB);
+            moneyChangeLog.setMoney(money);
+            moneyChangeLog.setCreateTime(new Date());
+            int i = moneyChangeLogMapper.addChangeLog(moneyChangeLog);
+
+            return i;
+        }catch (Exception ex){
+            return 0;
+        }
     }
 
 }

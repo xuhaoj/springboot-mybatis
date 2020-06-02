@@ -3,6 +3,7 @@ package com.xhj.springbootmybatis.service.mybatisdemo.impl;
 import com.xhj.springbootmybatis.service.mybatisdemo.UserMoneyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
@@ -19,7 +20,8 @@ public class UserMoneyServiceImpl implements UserMoneyService {
     MoneyServiceImpl moneyService;
 
     @Override
-    public String changeUserMoneyByService(Long userIdA, Long userIdB, BigDecimal money) {
+    @Transactional
+    public String changeUserMoneyByService(Long userIdA, Long userIdB, BigDecimal money) throws InterruptedException {
 
         //记录日志
         logService.addChangeLog(userIdA, userIdB, money);

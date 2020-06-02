@@ -4,7 +4,6 @@ import com.xhj.springbootmybatis.domain.mybatisdemo.dao.TUserMapper;
 import com.xhj.springbootmybatis.service.mybatisdemo.MoneyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -19,15 +18,18 @@ public class MoneyServiceImpl implements MoneyService {
     private TUserMapper userMapper;
 
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
     @Override
-    public String changeUserMoney(Long userIdA, Long userIdB, BigDecimal money) {
+    @Transactional
+    public String changeUserMoney(Long userIdA, Long userIdB, BigDecimal money) throws InterruptedException {
 
         //账户A减去money
         userMapper.updateUserMoneyMinus(userIdA, money);
-
         //账户B加money
         userMapper.updateUserMoneyAdd(userIdB, money);
+        if (true) {
+            //throw new InterruptedException("jack xu帅哥");
+            throw new RuntimeException("jack xu帅哥");
+        }
 
         return "转账成功";
     }

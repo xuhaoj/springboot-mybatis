@@ -15,6 +15,6 @@ public interface MoneyService {
      * @param money
      * @return
      */
-    String changeUserMoney(Long userIdA, Long userIdB, BigDecimal money);
+    String changeUserMoney(Long userIdA, Long userIdB, BigDecimal money) throws InterruptedException;
 
 }

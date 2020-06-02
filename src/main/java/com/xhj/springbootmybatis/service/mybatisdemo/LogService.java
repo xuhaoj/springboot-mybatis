@@ -8,12 +8,13 @@ import java.math.BigDecimal;
 public interface LogService {
 
     /**
-     * 记日志
+     * 记录转账日志
      *
      * @param userIdA
      * @param userIdB
      * @param money
+     * @return
      */
-    void addChangeLog(Long userIdA, Long userIdB, BigDecimal money);
+    int addChangeLog(Long userIdA, Long userIdB, BigDecimal money);
 
 }
