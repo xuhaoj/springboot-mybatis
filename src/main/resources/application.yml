@@ -4,9 +4,9 @@ spring:
   datasource:
     hikari:
       mybatisdemo:
-        jdbc-url: jdbc:mysql://localhost:3306/mybatisdemo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+        jdbc-url: jdbc:mysql://42.192.77.73:3307/db0?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
         username: root
-        password: 123456
+        password: 4245257
         driver-class-name: com.mysql.cj.jdbc.Driver
 #jackxu:
 #  format:
